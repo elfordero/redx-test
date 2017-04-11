@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<% endpoints.forEach(function(endpoint) { %>
+    <div style="float:left; padding-left: 25px; padding-right: 25px; background-color:ghostwhite; border-style: double; height:600px; width:600px;">
+        <h2><%= endpoint.name %></h2>
+        <h3> Parameters:</h3>
+        <ul>
+            <% endpoint.params.forEach(function(param) { %>
+            <li><%= param %></li>
+            <% }); %>
+        </ul>
+        <h3>Instructions:</h3>
+            <% endpoint.instructions.forEach(function(instruction) { %>
+            <p><%= instruction %></p>
+            <% }); %>
+        <h3>Example:</h3>
+        <p><%= endpoint.example %></p>
+    </div>
+<% }); %>
+</body>
+</html>
